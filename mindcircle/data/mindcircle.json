@@ -1,0 +1,355 @@
+{
+  "users": {
+    "649df79a8654464e93fb13f618934474": {
+      "id": "649df79a8654464e93fb13f618934474",
+      "username": "moderator",
+      "display_name": "Moderator",
+      "chat_name": "Moderator",
+      "role": "moderator",
+      "status": "active",
+      "salt": "998e22db4d8ee580e25278693ba8104d",
+      "pw_hash": "f8d7fe45ed15308aeff302b11a6bb2d6ef22f218e462a45f5ebb3ab413ec4751",
+      "created": "2026-11-14T18:31:38.974396+00:00",
+      "consent": {},
+      "last_suggested": []
+    },
+    "36623b4ee17e4f35b8bb7e88a83a1d50": {
+      "id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "username": "abc1",
+      "display_name": "axb1",
+      "chat_name": "kimi",
+      "role": "member",
+      "status": "active",
+      "salt": "0c9a20b3ddaced895b8c4fe4d81f868f",
+      "pw_hash": "f931bb06347d1bd15be1776b702909594fb1351daf512bd78993fe886d777891",
+      "created": "2026-11-14T18:32:52.013612+00:00",
+      "consent": {
+        "adult": true,
+        "message_screening": true,
+        "ts": "2026-11-14T18:32:52.013629+00:00"
+      },
+      "last_suggested": [
+        "box-breathing",
+        "breathing-478",
+        "meditation-calm",
+        "body-scan",
+        "meditation-sleep",
+        "music-listen",
+        "grounding-54321",
+        "breathing-478",
+        "body-scan",
+        "self-compassion",
+        "reach-out",
+        "tidy-one-space"
+      ]
+    },
+    "dd5bc43c88ff4dbc943df39633bbafb5": {
+      "id": "dd5bc43c88ff4dbc943df39633bbafb5",
+      "username": "axb2",
+      "display_name": "jimi",
+      "chat_name": "Kind Otter 25",
+      "role": "member",
+      "status": "active",
+      "salt": "6745269cf466e1f841a9b7778d59585c",
+      "pw_hash": "dc8e16431d155e76038102706fbcb707d886d7cd1ce5b5236a335fd0265881df",
+      "created": "2026-11-14T18:37:16.907290+00:00",
+      "consent": {
+        "adult": true,
+        "message_screening": true,
+        "ts": "2026-11-14T18:37:16.907307+00:00"
+      },
+      "last_suggested": [
+        "breathing-478",
+        "box-breathing",
+        "meditation-calm"
+      ]
+    }
+  },
+  "usernames": {
+    "moderator": "649df79a8654464e93fb13f618934474",
+    "abc1": "36623b4ee17e4f35b8bb7e88a83a1d50",
+    "axb2": "dd5bc43c88ff4dbc943df39633bbafb5"
+  },
+  "sessions": {
+    "f5a5ab0973acc6abd207270f4367b7c3742ca5ef3ffb8ea86e57bf66124b830f": {
+      "user_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "expires": 1794725809.417563
+    }
+  },
+  "login_fails": {
+    "axc1": [
+      1794681515.7404995,
+      1794681517.1565344
+    ],
+    "axc2": [
+      1794681591.8242538,
+      1794681593.0855339,
+      1794681599.539627
+    ],
+    "axb2": [
+      1794681605.836016,
+      1794681606.6535385,
+      1794681877.8203015,
+      1794681879.2857358
+    ]
+  },
+  "checkins": [
+    {
+      "user_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "mood": "anxious",
+      "energy": "high",
+      "need": "focus",
+      "ts": "2026-11-14T18:34:36.501832+00:00"
+    },
+    {
+      "user_id": "dd5bc43c88ff4dbc943df39633bbafb5",
+      "mood": "anxious",
+      "energy": "high",
+      "need": "talk",
+      "ts": "2026-11-14T18:37:33.205439+00:00"
+    },
+    {
+      "user_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "mood": "exhausted",
+      "energy": "low",
+      "need": "relax",
+      "ts": "2026-11-14T19:00:25.980280+00:00"
+    },
+    {
+      "user_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "mood": "anxious",
+      "energy": "low",
+      "need": "relax",
+      "ts": "2026-11-14T19:00:38.897164+00:00"
+    },
+    {
+      "user_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "mood": "sad",
+      "energy": "low",
+      "need": "relax",
+      "ts": "2026-11-14T19:00:48.173119+00:00"
+    }
+  ],
+  "feedback": [],
+  "tasks": {
+    "36623b4ee17e4f35b8bb7e88a83a1d50": [
+      {
+        "id": "733bc739ba",
+        "title": "sadafdasfdsdf",
+        "deadline": null,
+        "done": false,
+        "created": "2026-11-14T18:33:36.671332+00:00",
+        "source": "manual"
+      },
+      {
+        "id": "82c5f40d70",
+        "title": "sdfsffsdfsfsd",
+        "deadline": "2026-11-14",
+        "done": false,
+        "created": "2026-11-14T18:33:51.181958+00:00",
+        "source": "manual"
+      },
+      {
+        "id": "195ec0a53e",
+        "title": "sfdsfsfsf",
+        "deadline": "2026-11-16",
+        "done": false,
+        "created": "2026-11-14T18:33:55.677765+00:00",
+        "source": "manual"
+      },
+      {
+        "id": "19dfcf56a3",
+        "title": "IMPORTANT: Submit research proposal draft",
+        "deadline": "2026-11-14",
+        "done": false,
+        "created": "2026-11-14T18:44:54.801623+00:00",
+        "source": "calendar"
+      },
+      {
+        "id": "88a73a036c",
+        "title": "Team check-in call",
+        "deadline": "2026-11-14",
+        "done": false,
+        "created": "2026-11-14T18:44:54.801652+00:00",
+        "source": "calendar"
+      },
+      {
+        "id": "0fca950c19",
+        "title": "Lab report deadline",
+        "deadline": "2026-11-20",
+        "done": false,
+        "created": "2026-11-14T18:44:54.801664+00:00",
+        "source": "calendar"
+      }
+    ]
+  },
+  "rooms": {
+    "anxiety-support": {
+      "id": "anxiety-support",
+      "name": "Anxiety Support",
+      "mood": "anxious",
+      "description": "Share coping strategies and encouragement.",
+      "status": "open",
+      "members": {
+        "36623b4ee17e4f35b8bb7e88a83a1d50": {
+          "joined": "2026-11-14T18:35:06.138488+00:00"
+        },
+        "dd5bc43c88ff4dbc943df39633bbafb5": {
+          "joined": "2026-11-14T18:37:41.556986+00:00"
+        }
+      },
+      "messages": [
+        {
+          "id": "93f01e6bc9",
+          "user_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+          "role": "member",
+          "text": "hi I am not feeling well today",
+          "ts": "2026-11-14T18:35:17.347136+00:00",
+          "ts_epoch": 1794681317.3471506
+        },
+        {
+          "id": "794779f926",
+          "user_id": "dd5bc43c88ff4dbc943df39633bbafb5",
+          "role": "member",
+          "text": "me too",
+          "ts": "2026-11-14T18:37:57.813721+00:00",
+          "ts_epoch": 1794681477.8137426
+        }
+      ],
+      "presence": {
+        "36623b4ee17e4f35b8bb7e88a83a1d50": 1794682700.7004108,
+        "dd5bc43c88ff4dbc943df39633bbafb5": 1794681569.5721884
+      }
+    },
+    "gentle-peer-support": {
+      "id": "gentle-peer-support",
+      "name": "Gentle Peer Support",
+      "mood": "sad",
+      "description": "A quiet space for people who feel low.",
+      "status": "open",
+      "members": {},
+      "messages": []
+    },
+    "stress-relief": {
+      "id": "stress-relief",
+      "name": "Stress Relief",
+      "mood": "stressed",
+      "description": "Swap quick tips for busy days.",
+      "status": "open",
+      "members": {},
+      "messages": []
+    },
+    "youre-not-alone": {
+      "id": "youre-not-alone",
+      "name": "You're Not Alone",
+      "mood": "lonely",
+      "description": "A welcoming space for connection.",
+      "status": "open",
+      "members": {},
+      "messages": []
+    },
+    "gratitude-circle": {
+      "id": "gratitude-circle",
+      "name": "Gratitude Circle",
+      "mood": "happy",
+      "description": "Share what is going well.",
+      "status": "open",
+      "members": {},
+      "messages": []
+    },
+    "mindfulness-circle": {
+      "id": "mindfulness-circle",
+      "name": "Mindfulness Circle",
+      "mood": "calm",
+      "description": "Practice calm and mindful habits together.",
+      "status": "open",
+      "members": {},
+      "messages": []
+    },
+    "rest-recovery": {
+      "id": "rest-recovery",
+      "name": "Rest & Recovery",
+      "mood": "exhausted",
+      "description": "Gentle conversation about rest and pacing.",
+      "status": "open",
+      "members": {},
+      "messages": []
+    }
+  },
+  "queue": [
+    {
+      "id": "0d6ef38537",
+      "kind": "report",
+      "room_id": "anxiety-support",
+      "author": "Kind Otter 25",
+      "subject_user_id": "dd5bc43c88ff4dbc943df39633bbafb5",
+      "username": "axb2",
+      "reporter_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "text": "me too",
+      "categories": [
+        "member_report"
+      ],
+      "level": null,
+      "message_id": "794779f926",
+      "reason": "Reported by member",
+      "status": "open",
+      "ts": "2026-11-14T18:42:37.909386+00:00"
+    },
+    {
+      "id": "0d9f98ae8e",
+      "kind": "report",
+      "room_id": "anxiety-support",
+      "author": "Kind Otter 25",
+      "subject_user_id": "dd5bc43c88ff4dbc943df39633bbafb5",
+      "username": "axb2",
+      "reporter_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "text": "me too",
+      "categories": [
+        "member_report"
+      ],
+      "level": null,
+      "message_id": "794779f926",
+      "reason": "Reported by member",
+      "status": "open",
+      "ts": "2026-11-14T18:42:38.860841+00:00"
+    },
+    {
+      "id": "9f8c9dd40a",
+      "kind": "report",
+      "room_id": "anxiety-support",
+      "author": "Kind Otter 25",
+      "subject_user_id": "dd5bc43c88ff4dbc943df39633bbafb5",
+      "username": "axb2",
+      "reporter_id": "36623b4ee17e4f35b8bb7e88a83a1d50",
+      "text": "me too",
+      "categories": [
+        "member_report"
+      ],
+      "level": null,
+      "message_id": "794779f926",
+      "reason": "Reported by member",
+      "status": "open",
+      "ts": "2026-11-14T18:42:40.068149+00:00"
+    }
+  ],
+  "audit": [
+    {
+      "ts": "2026-11-14T18:31:38.974426+00:00",
+      "actor": "system",
+      "action": "moderator_created",
+      "target": "649df79a8654464e93fb13f618934474"
+    },
+    {
+      "ts": "2026-11-14T18:32:52.013650+00:00",
+      "actor": "abc1",
+      "action": "signup",
+      "target": "36623b4ee17e4f35b8bb7e88a83a1d50"
+    },
+    {
+      "ts": "2026-11-14T18:37:16.907323+00:00",
+      "actor": "axb2",
+      "action": "signup",
+      "target": "dd5bc43c88ff4dbc943df39633bbafb5"
+    }
+  ]
+}

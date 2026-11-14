@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindCircle</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- ===== AUTH SCREEN ===== -->
+  <section id="auth-view" class="auth-wrap">
+    <div class="auth-card">
+      <h1>MindCircle</h1>
+      <p class="tagline">Feel understood. Find your people. Move forward.</p>
+
+      <div class="auth-tabs">
+        <button id="show-login" class="tab-auth active" type="button">Log in</button>
+        <button id="show-signup" class="tab-auth" type="button">Sign up</button>
+      </div>
+
+      <form id="login-form" class="stack">
+        <label>Username
+          <input id="login-username" autocomplete="username" required />
+        </label>
+        <label>Password
+          <input id="login-password" type="password" autocomplete="current-password" required />
+        </label>
+        <button class="primary" type="submit">Log in</button>
+        <p id="login-error" class="error hidden" role="alert"></p>
+      </form>
+
+      <form id="signup-form" class="stack hidden">
+        <label>Username <span class="small muted">(3 to 20 letters, numbers, or _)</span>
+          <input id="signup-username" autocomplete="username" required maxlength="20" />
+        </label>
+        <label>Your name <span class="small muted">(for your account; you can set a separate chat name later)</span>
+          <input id="signup-display" required maxlength="40" />
+        </label>
+        <label>Password <span class="small muted">(at least 8 characters)</span>
+          <input id="signup-password" type="password" autocomplete="new-password" required minlength="8" />
+        </label>
+        <label>Confirm password
+          <input id="signup-confirm" type="password" autocomplete="new-password" required minlength="8" />
+        </label>
+        <label class="check">
+          <input id="signup-adult" type="checkbox" required />
+          I confirm I am 18 or older.
+        </label>
+        <label class="check">
+          <input id="signup-consent" type="checkbox" required />
+          I understand that community chat messages are safety-screened and flagged messages may be reviewed by trained moderators.
+        </label>
+        <button class="primary" type="submit">Create account</button>
+        <p id="signup-error" class="error hidden" role="alert"></p>
+      </form>
+
+      <p class="small muted center">Your check-ins are private and are never shown to moderators or other members.</p>
+    </div>
+  </section>
+
+  <!-- ===== APP SHELL ===== -->
+  <div id="app-view" class="hidden">
+    <header class="topbar">
+      <div>
+        <h1>MindCircle</h1>
+        <p class="tagline" id="whoami"></p>
+      </div>
+      <nav>
+        <button data-tab="checkin" class="tab active">Check-in</button>
+        <button data-tab="activities" class="tab">Activities</button>
+        <button data-tab="communities" class="tab">Communities</button>
+        <button data-tab="tasks" class="tab">Priorities</button>
+        <button data-tab="crisis" class="tab crisis-tab">Get help now</button>
+        <button data-tab="account" class="tab">Account</button>
+        <button data-tab="mod" class="tab mod-only hidden">Moderator</button>
+        <button id="logout" class="tab" type="button">Log out</button>
+      </nav>
+    </header>
+
+    <div id="reminder" class="banner hidden">
+      <span>It's time for your daily check-in.</span>
+      <button id="reminder-dismiss" class="secondary" type="button">Dismiss</button>
+    </div>
+
+    <main>
+      <!-- CHECK-IN -->
+      <section id="tab-checkin" class="panel">
+        <h2>How are you feeling today?</h2>
+        <p class="muted">About 15 seconds. Your check-in is private and is not shared with groups or moderators.</p>
+        <div id="mood-buttons" class="mood-grid"></div>
+
+        <div class="row">
+          <label>How is your energy?
+            <select id="energy">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label>What would help most right now?
+            <select id="need">
+              <option value="relax">Relax and recharge</option>
+              <option value="talk">Talk to someone</option>
+              <option value="focus">Focus on one task</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="checkin-submit" class="primary" type="button">See my suggestions</button>
+        <div id="checkin-result" class="result hidden"></div>
+      </section>
+
+      <!-- ACTIVITIES -->
+      <section id="tab-activities" class="panel hidden">
+        <h2>Activities for you</h2>
+        <div class="row">
+          <label>Mood
+            <select id="act-mood"><option value="">Choose how you feel</option></select>
+          </label>
+          <label>Energy
+            <select id="act-energy">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label>I want to
+            <select id="act-need">
+              <option value="relax">Relax</option>
+              <option value="talk">Talk</option>
+              <option value="focus">Focus</option>
+            </select>
+          </label>
+        </div>
+        <p id="act-message" class="card-note"></p>
+        <div id="activity-list" class="cards"></div>
+      </section>
+
+      <!-- COMMUNITIES -->
+      <section id="tab-communities" class="panel hidden">
+        <div id="room-list-view">
+          <h2>Communities</h2>
+          <p class="muted">Pick a group that fits how you feel. Joining is optional. Your chat name is shown to others; your account name is not.</p>
+          <div id="room-list" class="cards"></div>
+        </div>
+
+        <div id="room-view" class="hidden">
+          <div class="chat-head">
+            <button id="room-back" class="secondary" type="button">← All communities</button>
+            <div>
+              <h2 id="room-title"></h2>
+              <p id="room-desc" class="muted small"></p>
+            </div>
+          </div>
+          <div id="room-banner" class="banner warn hidden">This room is paused for safety review. Posting is temporarily disabled.</div>
+          <div class="chat-layout">
+            <div class="chat-main">
+              <div id="messages" class="chat-messages" aria-live="polite"></div>
+              <p id="chat-note" class="small muted"></p>
+              <form id="message-form" class="composer">
+                <input id="message-input" maxlength="500" placeholder="Write a message to the group…" autocomplete="off" />
+                <button type="submit" class="primary">Send</button>
+              </form>
+              <div id="message-feedback" class="feedback hidden"></div>
+            </div>
+            <aside class="chat-side">
+              <h3>In this group</h3>
+              <ul id="member-list" class="members"></ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRIORITIES -->
+      <section id="tab-tasks" class="panel hidden">
+        <h2>Your priorities</h2>
+        <p class="muted">Add tasks by hand, or import your calendar (.ics) to pull in upcoming events. Your top priority also appears after your daily check-in.</p>
+
+        <h3>Import calendar</h3>
+        <p class="small muted">In Google Calendar, Outlook, or Apple Calendar, export your calendar as an .ics file, then choose it here.</p>
+        <div class="row">
+          <input id="ics-file" type="file" accept=".ics,text/calendar" />
+          <button id="ics-import" class="primary" type="button">Import events</button>
+        </div>
+        <p id="ics-msg" class="small"></p>
+
+        <h3>Add a task</h3>
+        <form id="task-form" class="row">
+          <label>Task <input id="task-title" maxlength="120" required placeholder="e.g. Prepare proposal draft" /></label>
+          <label>Deadline <input id="task-deadline" type="date" /></label>
+          <button type="submit" class="primary">Add</button>
+        </form>
+
+        <div id="priority-card" class="card hidden"></div>
+        <h3>Open tasks</h3>
+        <ul id="task-list" class="list"></ul>
+      </section>
+
+      <!-- CRISIS -->
+      <section id="tab-crisis" class="panel hidden">
+        <h2>Get help now</h2>
+        <p>If you might be in danger or are thinking about ending your life, please contact emergency services or a crisis line right away. You do not have to explain everything first.</p>
+        <label>Country
+          <select id="crisis-country">
+            <option value="US">United States</option>
+            <option value="OTHER">Other country</option>
+          </select>
+        </label>
+        <div id="crisis-panel" class="cards"></div>
+      </section>
+
+      <!-- ACCOUNT -->
+      <section id="tab-account" class="panel hidden">
+        <h2>Your account</h2>
+        <p id="account-info" class="muted"></p>
+
+        <h3>Names</h3>
+        <form id="profile-form" class="stack">
+          <label>Your name <span class="small muted">(only you and moderators see this)</span>
+            <input id="profile-display" maxlength="40" required />
+          </label>
+          <label>Chat name <span class="small muted">(what other members see; 2 to 24 letters, numbers, spaces, or _)</span>
+            <input id="profile-chat" maxlength="24" required />
+          </label>
+          <button class="primary" type="submit">Save names</button>
+          <p id="profile-msg" class="small"></p>
+        </form>
+
+        <h3>Change password</h3>
+        <form id="password-form" class="stack">
+          <label>Current password <input id="pw-current" type="password" autocomplete="current-password" required /></label>
+          <label>New password <input id="pw-new" type="password" autocomplete="new-password" required minlength="8" /></label>
+          <button class="primary" type="submit">Update password</button>
+          <p id="pw-msg" class="small"></p>
+        </form>
+      </section>
+
+      <!-- MODERATOR -->
+      <section id="tab-mod" class="panel hidden">
+        <h2>Moderator dashboard</h2>
+        <p class="muted">You can see account names, status, activity counts, and flagged content. You cannot see check-ins, moods, or tasks.</p>
+        <div class="row">
+          <button id="mod-refresh" class="primary" type="button">Refresh all</button>
+        </div>
+        <div id="mod-rooms"></div>
+
+        <h3>Safety queue</h3>
+        <div id="mod-queue" class="cards"></div>
+
+        <h3>Chat monitor</h3>
+        <div class="row">
+          <label>Room
+            <select id="mon-room"></select>
+          </label>
+        </div>
+        <div class="monitor">
+          <div id="mon-messages" class="chat-messages monitor-messages"></div>
+          <aside class="chat-side">
+            <h3>Members</h3>
+            <ul id="mon-members" class="members"></ul>
+          </aside>
+        </div>
+        <form id="announce-form" class="composer">
+          <input id="announce-input" maxlength="500" placeholder="Post a moderator announcement to this room…" autocomplete="off" />
+          <button type="submit" class="primary">Announce</button>
+        </form>
+        <p id="announce-msg" class="small"></p>
+
+        <h3>Accounts</h3>
+        <div class="table-wrap"><table id="mod-users" class="table"></table></div>
+
+        <h3>Audit log</h3>
+        <ul id="mod-audit" class="list small"></ul>
+      </section>
+    </main>
+
+    <footer>
+      MindCircle is a peer-support and wellness prototype. It is not a replacement for therapy, medical care, or emergency services.
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
